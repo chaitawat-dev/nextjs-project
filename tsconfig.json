@@ -1,6 +1,8 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "baseUrl": ".",
+    "rootDir": "src",
+    "target": "es6",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
@@ -13,8 +15,12 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "incremental": true
+    "incremental": true,
+    "paths": {
+      "apexcharts": ["./node_modules/apexcharts-clevision"],
+      "apexcharts/*": ["./node_modules/apexcharts-clevision/*"]
+    }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["src", "declaration.d.ts"],
   "exclude": ["node_modules"]
 }
