@@ -46,7 +46,7 @@ const AuthProvider = ({ children }: Props) => {
         await axios
           .get(authConfig.meEndpoint, {
             headers: {
-              Authorization: storedToken
+              Authorization: 'Bearer ' + storedToken
             }
           })
           .then(async response => {
@@ -74,8 +74,9 @@ const AuthProvider = ({ children }: Props) => {
 
   const handleLogin = (params: LoginParams, errorCallback?: ErrCallbackType) => {
     axios
-      .post(authConfig.loginEndpoint, params)
+      .post(authConfig.login, params)
       .then(async response => {
+        console.log('response', response)
         params.rememberMe
           ? window.localStorage.setItem(authConfig.storageTokenKeyName, response.data.accessToken)
           : null

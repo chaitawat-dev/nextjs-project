@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build:prod": "env-cmd -f .env.production next build",
     "start": "next start",
     "export": "next export",
     "lint": "eslint --fix \"src/**/*.{js,jsx,ts,tsx}\"",
@@ -40,6 +41,7 @@
     "clipboard-copy": "^4.0.1",
     "clsx": "^1.2.1",
     "date-fns": "^2.29.3",
+    "dotenv": "^16.0.3",
     "draft-js": "^0.11.7",
     "firebase": "^9.13.0",
     "i18next": "^22.0.4",
