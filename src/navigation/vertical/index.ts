@@ -29,7 +29,12 @@ const navigation = (): VerticalNavItemsType => {
     {
       title: 'Products',
       icon: 'ic:outline-shopping-cart',
-      path: '/apps/products'
+      children: [
+        {
+          title: 'Products',
+          path: '/apps/products'
+        }
+      ]
     }
   ]
 }
