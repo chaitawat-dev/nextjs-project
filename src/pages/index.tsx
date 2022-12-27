@@ -15,8 +15,13 @@ import { useAuth } from 'src/hooks/useAuth'
  */
 export const getHomeRoute = (role: string) => {
   console.log('role', role)
-  if (role === 'client') return '/acl'
-  else return '/dashboards/crm'
+  if (role === 'client') {
+    return '/acl'
+  } else if (role === 'admin') {
+    return '/products'
+  } else {
+    return '/dashboards/crm'
+  }
 }
 
 const Home = () => {
@@ -25,7 +30,6 @@ const Home = () => {
   const router = useRouter()
 
   useEffect(() => {
-    console.log('auth', auth)
     if (auth.user && auth.user.role) {
       const homeRoute = getHomeRoute(auth.user.role)
 

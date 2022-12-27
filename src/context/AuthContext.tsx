@@ -50,8 +50,9 @@ const AuthProvider = ({ children }: Props) => {
             }
           })
           .then(async response => {
+            console.log('response', response)
             setLoading(false)
-            setUser({ ...response.data.userData })
+            setUser({ ...response.data, role: response.data.RoleName })
           })
           .catch(() => {
             localStorage.removeItem('userData')
@@ -82,7 +83,7 @@ const AuthProvider = ({ children }: Props) => {
           : null
         const returnUrl = router.query.returnUrl
 
-        setUser({ ...response.data.userData })
+        setUser({ ...response.data, role: response.data.RoleName })
         params.rememberMe ? window.localStorage.setItem('userData', JSON.stringify(response.data.userData)) : null
 
         const redirectURL = returnUrl && returnUrl !== '/' ? returnUrl : '/'

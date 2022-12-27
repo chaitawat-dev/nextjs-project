@@ -24,7 +24,7 @@ import MuiAutocomplete, { AutocompleteRenderInputParams } from '@mui/material/Au
 import axios from 'axios'
 
 // ** Types Imports
-import { AppBarSearchType } from 'src/@fake-db/types'
+// import { AppBarSearchType } from 'src/@fake-db/types'
 import { Settings } from 'src/@core/context/settingsContext'
 
 // ** Icon Imports
@@ -376,19 +376,19 @@ const AutocompleteComponent = ({ hidden, settings }: Props) => {
   const fullScreenDialog = useMediaQuery(theme.breakpoints.down('sm'))
 
   // Get all data using API
-  useEffect(() => {
-    axios
-      .get('/app-bar/search', {
-        params: { q: searchValue }
-      })
-      .then(response => {
-        if (response.data && response.data.length) {
-          setOptions(response.data)
-        } else {
-          setOptions([])
-        }
-      })
-  }, [searchValue])
+  // useEffect(() => {
+  //   axios
+  //     .get('/app-bar/search', {
+  //       params: { q: searchValue }
+  //     })
+  //     .then(response => {
+  //       if (response.data && response.data.length) {
+  //         setOptions(response.data)
+  //       } else {
+  //         setOptions([])
+  //       }
+  //     })
+  // }, [searchValue])
 
   useEffect(() => {
     if (!openDialog) {
